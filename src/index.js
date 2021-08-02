@@ -98,32 +98,53 @@ const toyboxContainer = document.querySelector("#toy-collection")
   
 const BASE_URL = 'http://localhost:3000/toys/'
   //console.log(toybox)
+//toyboxContainer.appendChild( toy )
 
-let toyList = document.createElement('form')  
-toyboxContainer.appendChild( toyList )
-
-//console.log(toyList)
-fetch(BASE_URL)
+  //console.log(toyList)
+  fetch(BASE_URL)
   .then((resp) => resp.json())
   .then((toyArray) => { 
-    //console.log(toyArray)
-    toyArray.forEach( (toy) => { 
-      //console.log(toy)
-    let toyItem = document.createElement('div') 
-    console.log(toyItem)   
-    toyList.appendChild(toyItem)  
+    console.log(toyArray)
+    console.log(toyArray[1])
+    
+    let toyImage = document.createElement("img")
+    toyboxContainer.appendChild(toyImage)
+    toyImage.src = toyArray[1].image
 
-   let toyImageToAppend = document.createElement("img")
-      toyItem.appendChild(toyImageToAppend)
-      console.log(toyImageToAppend)   
- // let toyToAppend2.innerHTML = document.createElement("ul")
-//       //console.log(toyToAppend)
-       toyImageToAppend.src = toy.image
+    let toyName = document.createElement("p")
+    toyboxContainer.appendChild(toyName)
+    toyName.textContent = `Name: ${toyArray[1].name}`
 
-//       toyboxContainer.append(toyToAppend)
-  
-    })
-  })
+    let toyLikes = document.createElement("p")
+    toyboxContainer.appendChild(toyLikes)
+    toyLikes.textContent = `Likes: ${toyArray[1].likes}`
+     
+      //     let toyItem = document.createElement('div') 
+      //     console.log(toyItem)   
+      //     toyList.appendChild(toyItem)  
+      //    let toyImageToAppend = document.createElement("img")
+      //       toyItem.appendChild(toyImageToAppend)
+      //       console.log(toyImageToAppend)   
+      // let toyCard = document.createElement('form')  
+      // toyCard.innerHTML = `
+      //        <div class="card">  
+      //        <h2>Toy Name: (toy.name}</h2>
+      //        <img src = "${toy.image}" class=="toy-avatar'/>
+      //        <p>
+      //        Likes
+      //        </p>
+      //        <button class="like-btn" id=${id}>Like </button>
+      //        </div> 
+      //        `
+//  // let toyToAppend2.innerHTML = document.createElement("ul")
+// //       //console.log(toyToAppend)
+//        toyImageToAppend.src = toy.image
+
+     // toyList.append(toyArray[1])
+
+})
+//})
+//toy[1].appendChild(toyboxContainer)
 //renderOneToy(toy)))
 
    // toyArray.forEach((objInArray) => { console.log(objInArray)
